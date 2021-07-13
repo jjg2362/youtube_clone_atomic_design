@@ -8,10 +8,10 @@ import Image from "../../atoms/Image";
 import Block from "../Block";
 import Button from "../../atoms/Button";
 
-const Card = ({ videoItem }) => {
+const Card = ({ item }) => {
   const history = useHistory();
   const classProps = classNames(styles.default);
-  const data = Object.keys(videoItem).length > 0 ? videoItem : null;
+  const data = Object.keys(item).length > 0 ? item : null;
 
   return (
     <div className={classProps}>
