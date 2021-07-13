@@ -18,7 +18,7 @@ const Card = ({ data }) => {
         onClick={() => history.push(`/video/${data.id}`)}
       >
         <div className={classNames(styles["content-wrapper"])}>
-          <Image src={data.snippet.thumbnails.default.url} />
+          <Image src={data.snippet.thumbnails.default.url} width="40%" />
           <Block direction="column" sort={11} margin={[0, 0, 0, 6]}>
             <P size={20} weight={700} text={data.snippet.title} />
             <P
