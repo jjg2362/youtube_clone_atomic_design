@@ -27,9 +27,8 @@ const MainPage = () => {
 
   return (
     <div>
-      <PopularVideoLists />
-
-      {/* {videoList !== null && <PopularVideoLists data={videoList.items} />} */}
+      {/* <PopularVideoLists /> */}
+      {videoList !== null && <PopularVideoLists data={videoList.items} />}
     </div>
   );
 };

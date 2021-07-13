@@ -17,7 +17,7 @@ const Card = ({ videoItem }) => {
     <div className={classProps}>
       <Button
         className="contents"
-        onClick={() => history.push(`/video/${data && data.id}`)}
+        onClick={() => data && history.push(`/video/${data.id}`)}
       >
         <div className={classNames(styles["content-wrapper"])}>
           <Image

@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 
+import Video from "../components/molecules/Video";
 import Header from "../components/organisms/header";
 
 const VideoPage = () => {
@@ -33,7 +34,7 @@ const VideoPage = () => {
   return (
     <div>
       <Header />
-      <span>비디오</span>
+      <Video id={id} />
     </div>
   );
 };
