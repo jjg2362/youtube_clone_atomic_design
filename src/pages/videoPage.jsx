@@ -48,7 +48,15 @@ const VideoPage = () => {
   }, []);
 
   return (
-    <div>{videoData && <VideoDetail id={id} videoData={videoData} />}</div>
+    <>
+      {videoData && relatedVideoLists && (
+        <VideoDetail
+          id={id}
+          videoData={videoData}
+          relatedVideoLists={relatedVideoLists.items}
+        />
+      )}
+    </>
   );
 };
 

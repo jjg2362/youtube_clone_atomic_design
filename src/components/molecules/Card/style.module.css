@@ -1,9 +1,12 @@
 .default {
   width: 100%;
-  max-width: 49%;
   height: auto;
   box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.2);
   margin-bottom: 8px;
+}
+
+.half {
+  max-width: 49%;
 }
 
 .content-wrapper {

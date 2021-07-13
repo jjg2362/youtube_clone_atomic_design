@@ -8,10 +8,10 @@ import Image from "../../atoms/Image";
 import Block from "../Block";
 import Button from "../../atoms/Button";
 
-const Card = ({ item }) => {
+const Card = ({ className, item }) => {
   const history = useHistory();
-  const classProps = classNames(styles.default);
   const data = Object.keys(item).length > 0 ? item : null;
+  const classProps = classNames([styles.default, styles[className]]);
 
   return (
     <div className={classProps}>
@@ -21,16 +21,20 @@ const Card = ({ item }) => {
       >
         <div className={classNames(styles["content-wrapper"])}>
           <Image
-            src={data && data.snippet.thumbnails.default.url}
+            src={data && data.snippet && data.snippet.thumbnails.default.url}
             width="40%"
           />
           <Block direction="column" sort={11} margin={[0, 0, 0, 6]}>
-            <P size={20} weight={700} text={data && data.snippet.title} />
+            <P
+              size={20}
+              weight={700}
+              text={data && data.snippet && data.snippet.title}
+            />
             <P
               size={16}
               lineHeight={1.5}
               weight={400}
-              text={data && data.snippet.channelTitle}
+              text={data && data.snippet && data.snippet.channelTitle}
             />
           </Block>
         </div>

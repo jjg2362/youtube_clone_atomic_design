@@ -6,15 +6,11 @@ import Card from "../../molecules/Card";
 import styles from "./style.module.css";
 
 const Aside = ({ data }) => {
-  const classProps = classNames(styles.default);
-
   return (
-    <aside className={classProps}>
-      <Block direction="column">
-        {data.map((item) => {
-          return <Card item={item} />;
-        })}
-      </Block>
+    <aside className={classNames(styles.default)}>
+      {data.map((item) => {
+        return <Card item={item} />;
+      })}
     </aside>
   );
 };
