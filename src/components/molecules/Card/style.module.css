@@ -1,11 +1,15 @@
 .default {
-  display: flex;
-  align-items: center;
   width: 100%;
   max-width: 49%;
   height: auto;
-  box-sizing: border-box;
-  padding: 10px;
   box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.2);
   margin-bottom: 8px;
+}
+
+.content-wrapper {
+  display: flex;
+  align-items: center;
+  box-sizing: border-box;
+  padding: 10px;
+  flex-wrap: nowrap;
 }

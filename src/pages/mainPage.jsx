@@ -9,7 +9,7 @@ const MainPage = () => {
 
   useEffect(() => {
     if (videoList === null) {
-      var requestOptions = {
+      const requestOptions = {
         method: "GET",
         redirect: "follow",
       };

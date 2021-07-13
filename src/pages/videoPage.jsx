@@ -1,19 +1,21 @@
 import React, { useState, useEffect } from "react";
+import { useParams } from "react-router-dom";
 
 import Header from "../components/organisms/header";
 
 const VideoPage = () => {
+  const { id } = useParams();
   const [videoData, setVideoData] = useState(null);
 
   useEffect(() => {
     if (videoData === null) {
-      var requestOptions = {
+      const requestOptions = {
         method: "GET",
         redirect: "follow",
       };
 
       fetch(
-        "https://www.googleapis.com/youtube/v3/videos?part=snippet&chart=mostPopular&maxResults=25&key=AIzaSyBhX89NVZ8IHbbliN5wIJd43b1nLPVf5OU",
+        `https://www.googleapis.com/youtube/v3/videos?part=snippet&id=${id}&key=AIzaSyBhX89NVZ8IHbbliN5wIJd43b1nLPVf5OU`,
         requestOptions
       )
         .then((response) => response.text())
@@ -25,6 +27,8 @@ const VideoPage = () => {
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
+
+  console.log(videoData);
 
   return (
     <div>

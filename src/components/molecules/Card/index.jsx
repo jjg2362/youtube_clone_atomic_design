@@ -13,14 +13,22 @@ const Card = ({ data }) => {
   const classProps = classNames(styles.default);
   return (
     <div className={classProps}>
-      <Button onClick={() => history.push(`/video/${data.id}`)}>
-        <Block sort={11}>
+      <Button
+        className="contents"
+        onClick={() => history.push(`/video/${data.id}`)}
+      >
+        <div className={classNames(styles["content-wrapper"])}>
           <Image src={data.snippet.thumbnails.default.url} />
           <Block direction="column" sort={11} margin={[0, 0, 0, 6]}>
             <P size={20} weight={700} text={data.snippet.title} />
-            <P size={16} weight={400} text={data.snippet.channelTitle} />
+            <P
+              size={16}
+              lineHeight={1.5}
+              weight={400}
+              text={data.snippet.channelTitle}
+            />
           </Block>
-        </Block>
+        </div>
       </Button>
     </div>
   );

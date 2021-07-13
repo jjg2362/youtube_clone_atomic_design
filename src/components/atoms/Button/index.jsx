@@ -4,7 +4,7 @@ import classNames from "classnames";
 import styles from "./style.module.css";
 
 const Button = ({ className, onClick, children }) => {
-  const classProps = classNames(styles.default, className);
+  const classProps = classNames(styles.default, styles[className]);
 
   return (
     <button className={classProps} onClick={onClick}>
