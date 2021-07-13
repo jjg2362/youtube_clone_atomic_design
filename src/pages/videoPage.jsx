@@ -1,10 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 
-import P from "../components/atoms/P";
-import Block from "../components/molecules/Block";
-import Video from "../components/molecules/Video";
-import Header from "../components/organisms/header";
+import VideoDetail from "../components/templates/VideoDetail";
 
 const VideoPage = () => {
   const { id } = useParams();
@@ -51,22 +48,7 @@ const VideoPage = () => {
   }, []);
 
   return (
-    <div>
-      <Header />
-      <Video id={id} />
-      {videoData && (
-        <Block direction="column" sort={21}>
-          <P size={22} weight={700} lineHeight={1.5} text={videoData.title} />
-          <P
-            size={18}
-            weight={700}
-            lineHeight={1.5}
-            text={videoData.channelTitle}
-          />
-          <P text={videoData.description} />
-        </Block>
-      )}
-    </div>
+    <div>{videoData && <VideoDetail id={id} videoData={videoData} />}</div>
   );
 };
 
