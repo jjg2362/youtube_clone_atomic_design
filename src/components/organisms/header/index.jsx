@@ -1,6 +1,6 @@
 import React from "react";
-import { Link } from "react-router-dom";
 
+import A from "../../molecules/A";
 import Image from "../../atoms/Image";
 import Block from "../../molecules/Block";
 import P from "../../atoms/P";
@@ -8,12 +8,12 @@ import P from "../../atoms/P";
 const Header = () => {
   const renderLogo = () => {
     return (
-      <Link to="/">
+      <A href="/">
         <Block>
           <Image src="/images/logo.png" />
           <P size="18" weight="700" text="Youtube" />
         </Block>
-      </Link>
+      </A>
     );
   };
 
