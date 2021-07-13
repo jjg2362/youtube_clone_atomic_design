@@ -9,8 +9,10 @@ const Header = () => {
   const renderLogo = () => {
     return (
       <A href="/">
-        <Image src="/images/logo.png" />
-        <P size="18" weight="700" text="Youtube" />
+        <Block sort={21}>
+          <Image src="/images/logo.png" />
+          <P size="18" weight="700" text="Youtube" />
+        </Block>
       </A>
     );
   };
