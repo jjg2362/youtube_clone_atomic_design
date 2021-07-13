@@ -26,11 +26,13 @@ const Card = ({ className, item }) => {
           />
           <Block direction="column" sort={11} margin={[0, 0, 0, 6]}>
             <P
+              className="two-line"
               size={20}
               weight={700}
               text={data && data.snippet && data.snippet.title}
             />
             <P
+              className="two-line"
               size={16}
               lineHeight={1.5}
               weight={400}

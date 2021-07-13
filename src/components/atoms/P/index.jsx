@@ -3,12 +3,20 @@ import classNames from "classnames";
 
 import styles from "./style.module.css";
 
-const P = ({ className, text, lineHeight = 1.2, size = 16, weight = 400 }) => {
-  const classProps = classNames(styles.default, className);
+const P = ({
+  className,
+  text,
+  lineHeight = 1.2,
+  size = 16,
+  weight = 400,
+  wordBreak = "normal",
+}) => {
+  const classProps = classNames(styles.default, styles[className]);
   const styleProps = {
     fontSize: size,
     fontWeight: weight,
     lineHeight: lineHeight,
+    wordBreak: wordBreak,
   };
   const textProp = text === null ? "untitled" : text;
 

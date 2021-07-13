@@ -11,14 +11,21 @@ const VideoContents = ({ id, videoData }) => {
     <article className={classNames(styles.default)}>
       <Video id={id} />
       <Block direction="column" sort={21}>
-        <P size={22} weight={700} lineHeight={1.5} text={videoData.title} />
         <P
+          className="two-line"
+          size={22}
+          weight={700}
+          lineHeight={1.5}
+          text={videoData.title}
+        />
+        <P
+          className="two-line"
           size={18}
           weight={700}
           lineHeight={1.5}
           text={videoData.channelTitle}
         />
-        <P text={videoData.description} />
+        <P wordBreak="break-all" text={videoData.description} />
       </Block>
     </article>
   );

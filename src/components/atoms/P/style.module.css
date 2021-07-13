@@ -1,9 +1,12 @@
 .default {
-  /* overflow: hidden;
+  margin: 0;
+  padding: 0;
+}
+
+.two-line {
+  overflow: hidden;
   text-overflow: ellipsis;
   display: -webkit-box;
   -webkit-line-clamp: 2;
-  -webkit-box-orient: vertical; */
-  margin: 0;
-  word-break: break-all;
+  -webkit-box-orient: vertical;
 }
