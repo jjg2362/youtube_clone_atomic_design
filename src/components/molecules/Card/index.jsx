@@ -8,24 +8,29 @@ import Image from "../../atoms/Image";
 import Block from "../Block";
 import Button from "../../atoms/Button";
 
-const Card = ({ data }) => {
+const Card = ({ videoItem }) => {
   const history = useHistory();
   const classProps = classNames(styles.default);
+  const data = Object.keys(videoItem).length > 0 ? videoItem : null;
+
   return (
     <div className={classProps}>
       <Button
         className="contents"
-        onClick={() => history.push(`/video/${data.id}`)}
+        onClick={() => history.push(`/video/${data && data.id}`)}
       >
         <div className={classNames(styles["content-wrapper"])}>
-          <Image src={data.snippet.thumbnails.default.url} width="40%" />
+          <Image
+            src={data && data.snippet.thumbnails.default.url}
+            width="40%"
+          />
           <Block direction="column" sort={11} margin={[0, 0, 0, 6]}>
-            <P size={20} weight={700} text={data.snippet.title} />
+            <P size={20} weight={700} text={data && data.snippet.title} />
             <P
               size={16}
               lineHeight={1.5}
               weight={400}
-              text={data.snippet.channelTitle}
+              text={data && data.snippet.channelTitle}
             />
           </Block>
         </div>

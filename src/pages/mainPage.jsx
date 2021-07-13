@@ -1,8 +1,5 @@
 import React, { useState, useEffect } from "react";
-
-import Card from "../components/molecules/Card";
-import Block from "../components/molecules/Block";
-import Header from "../components/organisms/header";
+import PopularVideoLists from "../components/templates/PopularVideoLists";
 
 const MainPage = () => {
   const [videoList, setVideoList] = useState(null);
@@ -30,13 +27,9 @@ const MainPage = () => {
 
   return (
     <div>
-      <Header />
-      <Block sort={24}>
-        {videoList !== null &&
-          videoList.items.map((videoItem) => {
-            return <Card key={videoItem.id} data={videoItem} />;
-          })}
-      </Block>
+      <PopularVideoLists />
+
+      {/* {videoList !== null && <PopularVideoLists data={videoList.items} />} */}
     </div>
   );
 };
