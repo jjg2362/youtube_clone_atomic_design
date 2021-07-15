@@ -15,7 +15,7 @@ const PopularVideoLists = ({ data = null }) => {
   return (
     <div>
       <Header />
-      <Block sort={24}>
+      <Block sort={24} padding={[0, 10]}>
         {videoLists.map((videoItem) => {
           return <Card className="half" key={videoItem.id} item={videoItem} />;
         })}

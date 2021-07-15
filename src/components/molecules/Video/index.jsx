@@ -1,10 +1,11 @@
 import React from "react";
 
-const Video = ({ id }) => {
+const Video = ({ id, width }) => {
+  const height = width * 0.5625;
   return (
     <iframe
       width="100%"
-      height="auto"
+      height={height}
       src={`https://www.youtube.com/embed/${id}`}
       title="video_preview"
       frameBorder="0"
