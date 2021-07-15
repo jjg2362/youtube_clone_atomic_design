@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import ScrollToTop from "../components/molecules/ScrollToTop";
 import PopularVideoLists from "../components/templates/PopularVideoLists";
 
 const MainPage = () => {
@@ -27,6 +28,7 @@ const MainPage = () => {
 
   return (
     <div>
+      <ScrollToTop />
       {/* <PopularVideoLists /> */}
       {videoList !== null && <PopularVideoLists data={videoList.items} />}
     </div>

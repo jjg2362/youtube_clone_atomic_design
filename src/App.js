@@ -1,5 +1,7 @@
-import "./app.css";
+import React from "react";
 import { BrowserRouter as Router, Route } from "react-router-dom";
+import "./app.css";
+
 import MainPage from "./pages/mainPage";
 import VideoPage from "./pages/videoPage";
 
@@ -13,7 +15,11 @@ const App = () => {
     );
   };
 
-  return <div className="container">{route()}</div>;
+  return (
+    <>
+      <div className="container">{route()}</div>
+    </>
+  );
 };
 
 export default App;
