@@ -26,26 +26,27 @@ const VideoPage = () => {
         })
         .catch((error) => console.log("error", error));
     }
-
-    if (relatedVideoLists === null) {
-      const requestOptions = {
-        method: "GET",
-        redirect: "follow",
-      };
-
-      fetch(
-        `https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=25&relatedToVideoId=${id}&type=video&key=AIzaSyBhX89NVZ8IHbbliN5wIJd43b1nLPVf5OU`,
-        requestOptions
-      )
-        .then((response) => response.text())
-        .then((result) => {
-          const lists = JSON.parse(result);
-          setRelatedVideoLists(lists);
-        })
-        .catch((error) => console.log("error", error));
-    }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
+
+  useEffect(() => {
+    console.log("aa");
+    const requestOptions = {
+      method: "GET",
+      redirect: "follow",
+    };
+
+    fetch(
+      `https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=25&relatedToVideoId=${id}&type=video&key=AIzaSyBhX89NVZ8IHbbliN5wIJd43b1nLPVf5OU`,
+      requestOptions
+    )
+      .then((response) => response.text())
+      .then((result) => {
+        const lists = JSON.parse(result);
+        setRelatedVideoLists(lists);
+      })
+      .catch((error) => console.log("error", error));
+  }, [id]);
 
   return (
     <>
