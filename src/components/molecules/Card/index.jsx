@@ -8,7 +8,7 @@ import Image from "../../atoms/Image";
 import Block from "../Block";
 import Button from "../../atoms/Button";
 
-const Card = ({ className, item }) => {
+const Card = ({ className, item, href }) => {
   const history = useHistory();
   const data = Object.keys(item).length > 0 ? item : null;
   const classProps = classNames([styles.default, styles[className]]);
@@ -17,7 +17,7 @@ const Card = ({ className, item }) => {
     <div className={classProps}>
       <Button
         className="contents"
-        onClick={() => data && history.push(`/video/${data.id}`)}
+        onClick={() => data && history.push(`/video/${href}`)}
       >
         <div className={classNames(styles["content-wrapper"])}>
           <Image

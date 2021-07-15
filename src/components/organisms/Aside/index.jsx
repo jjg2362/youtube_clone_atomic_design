@@ -10,7 +10,9 @@ const Aside = ({ data }) => {
       {data
         .filter((v) => Object.keys(v).includes("snippet"))
         .map((item) => {
-          return <Card key={item.id.videoId} item={item} />;
+          return (
+            <Card key={item.id.videoId} item={item} href={item.id.videoId} />
+          );
         })}
     </aside>
   );
