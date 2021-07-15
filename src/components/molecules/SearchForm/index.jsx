@@ -9,7 +9,9 @@ const SearchForm = (onSubmit, value, onChangeInput) => {
   return (
     <form onSubmit={onSubmit} className={classNames(styles.default)}>
       <Input type="text" onChange={onChangeInput} value={value} />
-      <Button onClick={onSubmit}>검색</Button>
+      <Button onClick={onSubmit}>
+        <i className="fas fa-search"></i>
+      </Button>
     </form>
   );
 };

@@ -1,9 +1,10 @@
 import React from "react";
 import { BrowserRouter as Router, Route } from "react-router-dom";
-import "./app.css";
+import "@fortawesome/fontawesome-free/js/all";
 
 import MainPage from "./pages/mainPage";
 import VideoPage from "./pages/videoPage";
+import "./app.css";
 
 const App = () => {
   const route = () => {
