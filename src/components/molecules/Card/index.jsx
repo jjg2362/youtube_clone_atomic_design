@@ -21,7 +21,7 @@ const Card = ({ className, item }) => {
       >
         <div className={classNames(styles["content-wrapper"])}>
           <Image
-            src={data && data.snippet && data.snippet.thumbnails.default.url}
+            src={data && data.snippet.thumbnails.default.url}
             width="40%"
           />
           <Block direction="column" sort={11} margin={[0, 0, 0, 6]}>
@@ -29,14 +29,14 @@ const Card = ({ className, item }) => {
               className="two-line"
               size={20}
               weight={700}
-              text={data && data.snippet && data.snippet.title}
+              text={data && data.snippet.title}
             />
             <P
               className="two-line"
               size={16}
               lineHeight={1.5}
               weight={400}
-              text={data && data.snippet && data.snippet.channelTitle}
+              text={data && data.snippet.channelTitle}
             />
           </Block>
         </div>
