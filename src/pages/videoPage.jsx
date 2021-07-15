@@ -1,16 +1,23 @@
 import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
+import Loading from "../components/atoms/Loading";
 import ScrollToTop from "../components/molecules/ScrollToTop";
 
 import VideoDetail from "../components/templates/VideoDetail";
 
 const VideoPage = () => {
   const { id } = useParams();
+  const [isLoadingFetchVideoData, setIsLoadingFetchVideoData] = useState(false);
   const [videoData, setVideoData] = useState(null);
+  const [isLoadingFetchRelatedVideoLists, setIsLoadingFetchRelatedVideoLists] =
+    useState(false);
   const [relatedVideoLists, setRelatedVideoLists] = useState(null);
 
   useEffect(() => {
     if (videoData === null) {
+      setIsLoadingFetchVideoData(true);
+      setVideoData(null);
+
       const requestOptions = {
         method: "GET",
         redirect: "follow",
@@ -24,13 +31,19 @@ const VideoPage = () => {
         .then((result) => {
           const data = JSON.parse(result);
           setVideoData(data.items[0].snippet);
+          setIsLoadingFetchVideoData(false);
         })
-        .catch((error) => console.log("error", error));
+        .catch((error) => {
+          console.log("error", error);
+          setIsLoadingFetchVideoData(false);
+        });
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   useEffect(() => {
+    setIsLoadingFetchRelatedVideoLists(true);
+
     const requestOptions = {
       method: "GET",
       redirect: "follow",
@@ -44,6 +57,7 @@ const VideoPage = () => {
       .then((result) => {
         const lists = JSON.parse(result);
         setRelatedVideoLists(lists);
+        setIsLoadingFetchRelatedVideoLists(false);
       })
       .catch((error) => console.log("error", error));
   }, [id]);
@@ -51,13 +65,13 @@ const VideoPage = () => {
   return (
     <>
       <ScrollToTop />
-      {videoData && relatedVideoLists && (
-        <VideoDetail
-          id={id}
-          videoData={videoData}
-          relatedVideoLists={relatedVideoLists.items}
-        />
-      )}
+      <VideoDetail
+        id={id}
+        isLoadingFetchVideoData={isLoadingFetchVideoData}
+        videoData={videoData}
+        isLoadingFetchRelatedVideoLists={isLoadingFetchRelatedVideoLists}
+        relatedVideoLists={relatedVideoLists}
+      />
     </>
   );
 };

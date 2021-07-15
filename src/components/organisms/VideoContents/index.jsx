@@ -6,31 +6,40 @@ import Block from "../../molecules/Block";
 import Video from "../../molecules/Video";
 import styles from "./style.module.css";
 import useResize from "../../../hooks/useResize";
+import Loading from "../../atoms/Loading";
 
-const VideoContents = ({ id, videoData }) => {
+const VideoContents = ({ id, videoData, isLoadingFetchVideoData }) => {
   const videoRef = useRef(null);
   const videoWidth = useResize(videoRef);
 
+  const render = () => {
+    return (
+      <>
+        <Video id={id} width={videoWidth} />
+        <Block direction="column" sort={21}>
+          <P
+            className="two-line"
+            size={22}
+            weight={700}
+            lineHeight={1.5}
+            text={videoData.title}
+          />
+          <P
+            className="two-line"
+            size={18}
+            weight={700}
+            lineHeight={1.5}
+            text={videoData.channelTitle}
+          />
+          <P wordBreak="break-all" text={videoData.description} />
+        </Block>
+      </>
+    );
+  };
+
   return (
     <article className={classNames(styles.default)} ref={videoRef}>
-      <Video id={id} width={videoWidth} />
-      <Block direction="column" sort={21}>
-        <P
-          className="two-line"
-          size={22}
-          weight={700}
-          lineHeight={1.5}
-          text={videoData.title}
-        />
-        <P
-          className="two-line"
-          size={18}
-          weight={700}
-          lineHeight={1.5}
-          text={videoData.channelTitle}
-        />
-        <P wordBreak="break-all" text={videoData.description} />
-      </Block>
+      {isLoadingFetchVideoData === false && videoData ? render() : <Loading />}
     </article>
   );
 };

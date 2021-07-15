@@ -5,14 +5,28 @@ import Header from "../../organisms/header";
 import VideoContents from "../../organisms/VideoContents";
 import Aside from "../../organisms/Aside";
 import styles from "./style.module.css";
+import Loading from "../../atoms/Loading";
 
-const VideoDetail = ({ id, videoData, relatedVideoLists }) => {
+const VideoDetail = ({
+  id,
+  isLoadingFetchVideoData,
+  videoData,
+  isLoadingFetchRelatedVideoLists,
+  relatedVideoLists,
+}) => {
   return (
     <>
       <Header />
       <div className={classNames(styles.container)}>
-        <VideoContents id={id} videoData={videoData} />
-        <Aside data={relatedVideoLists} />
+        <VideoContents
+          id={id}
+          isLoadingFetchVideoData={isLoadingFetchVideoData}
+          videoData={videoData}
+        />
+        <Aside
+          isLoadingFetchRelatedVideoLists={isLoadingFetchRelatedVideoLists}
+          relatedVideoLists={relatedVideoLists}
+        />
       </div>
     </>
   );
