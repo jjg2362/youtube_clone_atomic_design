@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
-import Loading from "../components/atoms/Loading";
 import ScrollToTop from "../components/molecules/ScrollToTop";
 
 import VideoDetail from "../components/templates/VideoDetail";
