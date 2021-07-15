@@ -2,7 +2,7 @@ import React from "react";
 
 import Card from "../molecules/Card";
 import Block from "../molecules/Block";
-import Header from "../organisms/header";
+import Header from "../organisms/Header";
 
 const PopularVideoLists = ({ data = null }) => {
   const videoLists =

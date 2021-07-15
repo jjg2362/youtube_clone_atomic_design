@@ -3,7 +3,7 @@ import classNames from "classnames";
 import Button from "../../atoms/Button";
 import Input from "../../atoms/Input";
 
-import styles from "style.module.css";
+import styles from "./style.module.css";
 
 const SearchForm = (onSubmit, value, onChangeInput) => {
   return (

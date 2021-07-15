@@ -1,9 +1,12 @@
 import React from "react";
+import classNames from "classnames";
 
 import A from "../../molecules/A";
 import Image from "../../atoms/Image";
 import Block from "../../molecules/Block";
 import P from "../../atoms/P";
+import SearchForm from "../../molecules/SearchForm";
+import styles from "./style.module.css";
 
 const Header = () => {
   const renderLogo = () => {
@@ -18,10 +21,9 @@ const Header = () => {
   };
 
   return (
-    <header>
-      <Block sort={24} padding={[10]}>
-        {renderLogo()}
-      </Block>
+    <header className={classNames(styles.default)}>
+      {renderLogo()}
+      <SearchForm />
     </header>
   );
 };

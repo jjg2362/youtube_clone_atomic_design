@@ -1,11 +1,10 @@
 import React from "react";
 import classNames from "classnames";
 
-import Header from "../../organisms/header";
+import Header from "../../organisms/Header";
 import VideoContents from "../../organisms/VideoContents";
 import Aside from "../../organisms/Aside";
 import styles from "./style.module.css";
-import Loading from "../../atoms/Loading";
 
 const VideoDetail = ({
   id,
