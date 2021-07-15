@@ -30,7 +30,6 @@ const VideoPage = () => {
   }, []);
 
   useEffect(() => {
-    console.log("aa");
     const requestOptions = {
       method: "GET",
       redirect: "follow",
