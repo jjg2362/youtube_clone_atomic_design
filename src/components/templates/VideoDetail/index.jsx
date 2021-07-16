@@ -4,16 +4,23 @@ import classNames from "classnames";
 import Header from "../../organisms/Header";
 import VideoContents from "../../organisms/VideoContents";
 import Aside from "../../organisms/Aside";
-import styles from "./style.module.css";
 import Block from "../../molecules/Block";
+import styles from "./style.module.css";
 
 const VideoDetail = ({
-  id,
-  isLoadingFetchVideoData,
-  videoData,
-  isLoadingFetchRelatedVideoLists,
-  relatedVideoLists,
+  id = "",
+  isLoadingFetchVideoData = false,
+  videoData = null,
+  isLoadingFetchRelatedVideoLists = false,
+  relatedVideoLists = null,
 }) => {
+  const videoLists =
+    relatedVideoLists === null
+      ? Array(25)
+          .fill(null)
+          .map(() => Object())
+      : relatedVideoLists.items;
+
   return (
     <>
       <Header />
@@ -25,7 +32,7 @@ const VideoDetail = ({
         />
         <Aside
           isLoadingFetchRelatedVideoLists={isLoadingFetchRelatedVideoLists}
-          relatedVideoLists={relatedVideoLists}
+          relatedVideoLists={videoLists}
         />
       </Block>
     </>

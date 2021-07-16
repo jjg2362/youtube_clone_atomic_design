@@ -22,16 +22,16 @@ const VideoContents = ({ id, videoData, isLoadingFetchVideoData }) => {
             size={22}
             weight={700}
             lineHeight={1.5}
-            text={videoData.title}
+            text={videoData && videoData.title}
           />
           <P
             className="two-line"
             size={18}
             weight={700}
             lineHeight={1.5}
-            text={videoData.channelTitle}
+            text={videoData && videoData.channelTitle}
           />
-          <P wordBreak="break-all" text={videoData.description} />
+          <P wordBreak="break-all" text={videoData && videoData.description} />
         </Block>
       </>
     );
@@ -39,7 +39,7 @@ const VideoContents = ({ id, videoData, isLoadingFetchVideoData }) => {
 
   return (
     <article className={classNames(styles.default)} ref={videoRef}>
-      {isLoadingFetchVideoData === false && videoData ? render() : <Loading />}
+      {isLoadingFetchVideoData === false ? render() : <Loading />}
     </article>
   );
 };

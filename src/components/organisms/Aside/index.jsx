@@ -6,14 +6,18 @@ import styles from "./style.module.css";
 import Loading from "../../atoms/Loading";
 
 const Aside = ({ isLoadingFetchRelatedVideoLists, relatedVideoLists }) => {
+  console.log(isLoadingFetchRelatedVideoLists);
   const render = () => {
-    return relatedVideoLists.items
-      .filter((v) => Object.keys(v).includes("snippet"))
-      .map((item) => {
-        return (
-          <Card key={item.id.videoId} item={item} href={item.id.videoId} />
-        );
-      });
+    return relatedVideoLists.map((item, index) => {
+      const isEmpty = Object.keys(item).length === 0;
+      return (
+        <Card
+          key={isEmpty ? index : item.id.videoId}
+          item={item}
+          href={isEmpty ? index : item.id.videoId}
+        />
+      );
+    });
   };
 
   return (

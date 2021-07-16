@@ -42,6 +42,7 @@ const VideoPage = () => {
 
   useEffect(() => {
     setIsLoadingFetchRelatedVideoLists(true);
+    console.log(id);
 
     const requestOptions = {
       method: "GET",
@@ -54,12 +55,24 @@ const VideoPage = () => {
     )
       .then((response) => response.text())
       .then((result) => {
-        const lists = JSON.parse(result);
-        setRelatedVideoLists(lists);
         setIsLoadingFetchRelatedVideoLists(false);
+
+        if (result.error) {
+          const lists = JSON.parse(result);
+          setRelatedVideoLists(lists);
+        } else {
+          setRelatedVideoLists(null);
+          setIsLoadingFetchRelatedVideoLists(false);
+        }
       })
-      .catch((error) => console.log("error", error));
+      .catch((error) => {
+        console.log("error", error);
+        setRelatedVideoLists(null);
+        setIsLoadingFetchRelatedVideoLists(false);
+      });
   }, [id]);
+
+  console.log(relatedVideoLists);
 
   return (
     <>
