@@ -9,9 +9,9 @@ import SearchForm from "../../molecules/SearchForm";
 import P from "../../atoms/P";
 import styles from "./style.module.css";
 
-const Header = () => {
+const Header = ({ searchInput = "" }) => {
   const history = useHistory();
-  const [inputValue, setInputValue] = useState("");
+  const [inputValue, setInputValue] = useState(searchInput);
 
   const onChangeInput = (event) => {
     if (event && event.target) {

@@ -1,5 +1,6 @@
 import React, { useEffect } from "react";
 import { useParams } from "react-router-dom";
+import SearchVideoLists from "../components/templates/SearchVideoLists";
 
 const SearchPage = () => {
   const { search_query } = useParams();
@@ -10,7 +11,11 @@ const SearchPage = () => {
     }
   }, [search_query]);
 
-  return <></>;
+  return (
+    <>
+      <SearchVideoLists searchInput={search_query} />
+    </>
+  );
 };
 
 export default SearchPage;
