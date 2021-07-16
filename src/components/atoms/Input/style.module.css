@@ -2,5 +2,11 @@
   background: none;
   border: none;
   outline: none;
-  cursor: pointer;
+}
+
+.search {
+  width: 100%;
+  color: #888;
+  background-color: #fff;
+  padding: 10px;
 }

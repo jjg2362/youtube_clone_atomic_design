@@ -9,13 +9,17 @@ const Button = ({
   children,
   size = 16,
   weight = 400,
-  color = "white",
+  color = "#000",
+  backgroundColor = "none",
+  width = "auto",
 }) => {
   const classProps = classNames(styles.default, styles[className]);
   const styleProps = {
     fontSize: size,
     fontWeight: weight,
     color: color,
+    backgroundColor: backgroundColor,
+    width: width,
   };
 
   return (
