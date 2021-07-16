@@ -6,6 +6,7 @@ import Block from "../../molecules/Block";
 import Header from "../../organisms/Header";
 import Loading from "../../atoms/Loading";
 import styles from "./style.module.css";
+import P from "../../atoms/P";
 
 const SearchVideoLists = ({
   searchInput,
@@ -31,10 +32,13 @@ const SearchVideoLists = ({
       <Block
         direction="column"
         sort={11}
-        padding={[0, 10]}
-        margin={[10, 0, 0, 0]}
+        padding={[0, 30]}
+        margin={[20, 0, 0, 0]}
       >
-        {isLoadingFetchVideoLists === false ? render() : <Loading />}
+        <P weight="700" text={`${searchInput}에 대한 검색 결과입니다.`} />
+        <Block direction="column" sort={11} margin={[20, 0, 0, 0]}>
+          {isLoadingFetchVideoLists === false ? render() : <Loading />}
+        </Block>
       </Block>
     </>
   );
