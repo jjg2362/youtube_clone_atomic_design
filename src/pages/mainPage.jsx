@@ -3,10 +3,14 @@ import ScrollToTop from "../components/molecules/ScrollToTop";
 import PopularVideoLists from "../components/templates/PopularVideoLists";
 
 const MainPage = () => {
-  const [videoList, setVideoList] = useState(null);
+  const [videoLists, setVideoLists] = useState(null);
+  const [isLoadingFetchVideoLists, setIsLoadingFetchVideoLists] =
+    useState(false);
 
   useEffect(() => {
-    if (videoList === null) {
+    if (videoLists === null) {
+      setIsLoadingFetchVideoLists(true);
+
       const requestOptions = {
         method: "GET",
         redirect: "follow",
@@ -19,7 +23,13 @@ const MainPage = () => {
         .then((response) => response.text())
         .then((result) => {
           const list = JSON.parse(result);
-          setVideoList(list);
+          console.log(list);
+          if (list.error) {
+            setVideoLists(null);
+          } else {
+            setVideoLists(list);
+          }
+          setIsLoadingFetchVideoLists(false);
         })
         .catch((error) => console.log("error", error));
     }
@@ -29,8 +39,10 @@ const MainPage = () => {
   return (
     <>
       <ScrollToTop />
-      {/* <PopularVideoLists /> */}
-      {videoList !== null && <PopularVideoLists data={videoList.items} />}
+      <PopularVideoLists
+        isLoadingFetchVideoLists={isLoadingFetchVideoLists}
+        videoLists={videoLists}
+      />
     </>
   );
 };
