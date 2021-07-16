@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import classNames from "classnames";
+import { useHistory } from "react-router-dom";
 
 import A from "../../molecules/A";
 import Image from "../../atoms/Image";
@@ -9,6 +10,7 @@ import P from "../../atoms/P";
 import styles from "./style.module.css";
 
 const Header = () => {
+  const history = useHistory();
   const [inputValue, setInputValue] = useState("");
 
   const onChangeInput = (event) => {
@@ -32,7 +34,7 @@ const Header = () => {
     <header className={classNames(styles.default)}>
       {renderLogo()}
       <SearchForm
-        onSubmit={() => {}}
+        onSubmit={() => history.push(`/search/${inputValue}`)}
         onChangeInput={onChangeInput}
         inputValue={inputValue}
       />
