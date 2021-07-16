@@ -23,7 +23,7 @@ const VideoPage = () => {
       };
 
       fetch(
-        `https://www.googleapis.com/youtube/v3/videos?part=snippet&id=${id}&key=AIzaSyBhX89NVZ8IHbbliN5wIJd43b1nLPVf5OU`,
+        `https://www.googleapis.com/youtube/v3/videos?part=snippet&id=${id}&key=AIzaSyAK0l7LBHVbOAQEihLpXOvPALaRex7IC9Q`,
         requestOptions
       )
         .then((response) => response.text())
@@ -50,7 +50,7 @@ const VideoPage = () => {
     };
 
     fetch(
-      `https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=25&relatedToVideoId=${id}&type=video&key=AIzaSyBhX89NVZ8IHbbliN5wIJd43b1nLPVf5OU`,
+      `https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=25&relatedToVideoId=${id}&type=video&key=AIzaSyAK0l7LBHVbOAQEihLpXOvPALaRex7IC9Q`,
       requestOptions
     )
       .then((response) => response.text())

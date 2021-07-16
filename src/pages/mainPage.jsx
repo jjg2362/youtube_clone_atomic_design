@@ -13,7 +13,7 @@ const MainPage = () => {
       };
 
       fetch(
-        "https://www.googleapis.com/youtube/v3/videos?part=snippet&chart=mostPopular&maxResults=25&key=AIzaSyBhX89NVZ8IHbbliN5wIJd43b1nLPVf5OU",
+        "https://www.googleapis.com/youtube/v3/videos?part=snippet&chart=mostPopular&maxResults=25&key=AIzaSyAK0l7LBHVbOAQEihLpXOvPALaRex7IC9Q",
         requestOptions
       )
         .then((response) => response.text())
