@@ -1,5 +1,6 @@
 import React, { useEffect } from "react";
 import { useParams } from "react-router-dom";
+import ScrollToTop from "../components/molecules/ScrollToTop";
 import SearchVideoLists from "../components/templates/SearchVideoLists";
 
 const SearchPage = () => {
@@ -13,6 +14,7 @@ const SearchPage = () => {
 
   return (
     <>
+      <ScrollToTop />
       <SearchVideoLists searchInput={search_query} />
     </>
   );
