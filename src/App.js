@@ -4,6 +4,7 @@ import "@fortawesome/fontawesome-free/js/all";
 
 import MainPage from "./pages/mainPage";
 import VideoPage from "./pages/videoPage";
+import SearchPage from "./pages/saerchPage";
 import "./app.css";
 
 const App = () => {
@@ -12,6 +13,7 @@ const App = () => {
       <Router>
         <Route path="/" component={MainPage} exact />
         <Route path="/video/:id" component={VideoPage} />
+        <Route path="/search/:search_query" component={SearchPage} />
       </Router>
     );
   };
