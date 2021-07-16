@@ -1,8 +1,10 @@
 import React from "react";
+import classNames from "classnames";
 
-import Card from "../molecules/Card";
-import Block from "../molecules/Block";
-import Header from "../organisms/Header";
+import Card from "../../molecules/Card";
+import Block from "../../molecules/Block";
+import Header from "../../organisms/Header";
+import styles from "./style.module.css";
 
 const PopularVideoLists = ({ data = null }) => {
   const videoLists =
@@ -13,9 +15,9 @@ const PopularVideoLists = ({ data = null }) => {
       : data;
 
   return (
-    <div>
+    <div className={classNames(styles.default)}>
       <Header />
-      <Block sort={24} padding={[0, 10]}>
+      <Block sort={14} padding={[0, 10]} margin={[10, 0, 0, 0]}>
         {videoLists.map((videoItem) => {
           return (
             <Card

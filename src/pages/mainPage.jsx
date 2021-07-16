@@ -27,11 +27,11 @@ const MainPage = () => {
   }, []);
 
   return (
-    <div>
+    <>
       <ScrollToTop />
       {/* <PopularVideoLists /> */}
       {videoList !== null && <PopularVideoLists data={videoList.items} />}
-    </div>
+    </>
   );
 };
 
